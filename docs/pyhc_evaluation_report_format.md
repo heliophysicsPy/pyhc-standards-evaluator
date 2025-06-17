@@ -127,7 +127,7 @@ No \* = "shoulds"
 [1-2 sentences explaining the grade]
 
 - **Packaging**: ✅/⚠️/❌ [Is code organized and provided as part of an installable Python package?\*]
-- **Releases**: ✅/⚠️/❌ [Are there stable releases on PyPI/Conda? Version < 1.0 for unstable?]
+- **Releases**: ✅/⚠️/❌ [Are there stable releases on PyPI? Are there stable releases on Conda? Version < 1.0 for unstable?]
 - **Semantic Versioning**: ✅/⚠️/❌ [Does the project follow semantic versioning?]
 - **OS Support**: ✅/⚠️/❌ [Does it work on Windows, macOS, Linux?]
 - **Version Control**: ✅/⚠️/❌ [Uses git or other distributed VCS?\*]
