@@ -158,7 +158,7 @@ No \* = "shoulds"
 
 **Example (from actual evaluation):**
 ```markdown
-### 1. Community - ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg)
+### 1. Community ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg)
 
 While the project demonstrates open development and unique functionality, the lack of a code of conduct and limited collaboration infrastructure prevents a "Good" rating.
 
@@ -167,7 +167,7 @@ While the project demonstrates open development and unique functionality, the la
 - **Collaboration**: ⚠️ Basic README exists but no CONTRIBUTING.md or issue templates
 - **Code of Conduct**: ❌ No code of conduct file found in repository
 
-### 3. Testing - ![Requires improvement](https://img.shields.io/badge/Requires%20improvement-red.svg)
+### 3. Testing ![Requires improvement](https://img.shields.io/badge/Requires%20improvement-red.svg)
 
 Testing infrastructure is critically lacking with minimal unit tests, no automation, and no coverage measurement, requiring immediate attention for PyHC compliance.
 
