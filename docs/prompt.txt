@@ -1,0 +1,1 @@
+Evaluate <package> using these guidelines (`pyhc_project_grading_guidelines.md`) against these standards (`standards.md`) and follow this report format (`pyhc_evaluation_report_format.md`).
