@@ -42,7 +42,7 @@ Example:
 
 ### 3. Executive Summary Table
 
-Place this table immediately after the metadata. Use badge images for visual clarity:
+Place this table immediately after the metadata. Use badge images for visual clarity (see "Evaluation Logic" below for rules on how to assign badges):
 
 ```markdown
 ## Standards Compliance Summary
@@ -97,27 +97,27 @@ No \* = "shoulds"
 
 [1-2 sentences explaining why this specific grade was assigned]
 
-- **Open Development**: ✅/⚠️/❌ [Is code publicly available and developed in the open?\*]
+- **Open Development**\*: ✅/⚠️/❌ [Is code publicly available and developed in the open?]
 - **Duplication**: ✅/⚠️/❌ [Does this duplicate existing functionality in the ecosystem?]
-- **Collaboration**: ✅/⚠️/❌ [Are there contribution guidelines and a welcoming environment?\*]
-- **Code of Conduct**: ✅/⚠️/❌ [Is there a Contributor Covenant-compatible code of conduct?\*]
+- **Collaboration**\*: ✅/⚠️/❌ [Are there contribution guidelines and a welcoming environment?]
+- **Code of Conduct**\*: ✅/⚠️/❌ [Is there a Contributor Covenant-compatible code of conduct?]
 
 ### 2. Documentation ![Grade](Badge URL)
 
 [1-2 sentences explaining the grade]
 
-- **Docstrings**: ✅/⚠️/❌ [Are all functions, classes, and modules documented?\*]
-- **Docstring Content**: ✅/⚠️/❌ [Do docstrings describe purpose, inputs, outputs, and examples?\*]
-- **Docstring Standards**: ✅/⚠️/❌ [Do they follow standard conventions (e.g., numpydoc)?\*]
-- **High-Level Documentation**: ✅/⚠️/❌ [Are there guides, tutorials, and developer docs?\*]
-- **Documentation Accessibility**: ✅/⚠️/❌ [Is documentation in version control and available online?\*]
+- **Docstrings**\*: ✅/⚠️/❌ [Are all functions, classes, and modules documented?]
+- **Docstring Content**\*: ✅/⚠️/❌ [Do docstrings describe purpose, inputs, outputs, and examples?]
+- **Docstring Standards**\*: ✅/⚠️/❌ [Do they follow standard conventions (e.g., numpydoc)?]
+- **High-Level Documentation**\*: ✅/⚠️/❌ [Are there guides, tutorials, and developer docs?]
+- **Documentation Accessibility**\*: ✅/⚠️/❌ [Is documentation in version control and available online?]
 
 ### 3. Testing ![Grade](Badge URL)
 
 [1-2 sentences explaining the grade]
 
-- **Unit Tests**: ✅/⚠️/❌ [Do unit tests cover individual components?\*]
-- **Integration Tests**: ✅/⚠️/❌ [Are component interactions tested?\*]
+- **Unit Tests**\*: ✅/⚠️/❌ [Do unit tests cover individual components?]
+- **Integration Tests**\*: ✅/⚠️/❌ [Are component interactions tested?]
 - **Test Coverage**: ✅/⚠️/❌ [Is coverage measured and adequate?]
 - **Automated Testing**: ✅/⚠️/❌ [Are tests run automatically on commits/PRs?]
 - **System/Acceptance Testing**: ✅/⚠️/❌ [Are these higher-level tests implemented?]
@@ -126,12 +126,12 @@ No \* = "shoulds"
 
 [1-2 sentences explaining the grade]
 
-- **Packaging**: ✅/⚠️/❌ [Is code organized and provided as part of an installable Python package?\*]
-- **Releases**: ✅/⚠️/❌ [Are there stable releases on PyPI? Are there stable releases on Conda? Version < 1.0 for unstable?]
+- **Packaging**\*: ✅/⚠️/❌ [Is code organized and provided as part of an installable Python package?]
+- **Releases**: ✅/⚠️/❌ [Are there stable releases on PyPI? Are there stable releases on Conda? (Answer for BOTH PyPI AND Conda!) Version < 1.0 for unstable?]
 - **Semantic Versioning**: ✅/⚠️/❌ [Does the project follow semantic versioning?]
 - **OS Support**: ✅/⚠️/❌ [Does it work on Windows, macOS, Linux?]
-- **Version Control**: ✅/⚠️/❌ [Uses git or other distributed VCS?\*]
-- **Coding Style**: ✅/⚠️/❌ [Follows PEP 8?\*]
+- **Version Control**\*: ✅/⚠️/❌ [Uses git or other distributed VCS?]
+- **Coding Style**\*: ✅/⚠️/❌ [Follows PEP 8?]
 - **Static Analysis**: ✅/⚠️/❌ [Uses linting tools?]
 - **Dependencies**: ✅/⚠️/❌ [Are dependencies minimal and justified?]
 - **Binaries**: ✅/⚠️/❌ [Are binaries avoided in the repository?]
@@ -140,15 +140,17 @@ No \* = "shoulds"
 
 [1-2 sentences explaining the grade]
 
-- **Python 3 Compatibility**: ✅/⚠️/❌ [Is the package compatible with Python 3?\* Has Python 2 support been dropped?]
+- **Python 3 Compatibility**\*: ✅/⚠️/❌ [Is the package compatible with Python 3? Has Python 2 support been dropped (optional but recommended)?]
 
 ### 6. License ![Grade](Badge URL)
 
 [1-2 sentences explaining the grade]
 
-- **License Exists**: ✅/⚠️/❌ [Is a license file present?\*]
+- **License Exists**\*: ✅/⚠️/❌ [Is a license file present?]
 - **License Type**: ✅/⚠️/❌ [Is it permissive (BSD, MIT) rather than copyleft (GPL)?]
 - **OSI Approved**: ✅/⚠️/❌ [Is it an OSI-approved license?]
+
+*(\* = "must")*
 ```
 
 **Emoji Usage:**
@@ -162,20 +164,26 @@ No \* = "shoulds"
 
 While the project demonstrates open development and unique functionality, the lack of a code of conduct and limited collaboration infrastructure prevents a "Good" rating.
 
-- **Open Development**: ✅ Code is publicly available on GitHub at https://github.com/example/package
+- **Open Development**\*: ✅ Code is publicly available on GitHub at https://github.com/example/package
 - **Duplication**: ✅ Provides unique model-agnostic analysis functionality not found elsewhere
-- **Collaboration**: ⚠️ Basic README exists but no CONTRIBUTING.md or issue templates
-- **Code of Conduct**: ❌ No code of conduct file found in repository
+- **Collaboration**\*: ⚠️ Basic README exists but no CONTRIBUTING.md or issue templates
+- **Code of Conduct**\*: ❌ No code of conduct file found in repository
+
+...
 
 ### 3. Testing ![Requires improvement](https://img.shields.io/badge/Requires%20improvement-red.svg)
 
 Testing infrastructure is critically lacking with minimal unit tests, no automation, and no coverage measurement, requiring immediate attention for PyHC compliance.
 
-- **Unit Tests**: ❌ Only one module has unit tests out of 25+ modules
-- **Integration Tests**: ❌ No comprehensive integration testing framework
+- **Unit Tests**\*: ❌ Only one module has unit tests out of 25+ modules
+- **Integration Tests**\*: ❌ No comprehensive integration testing framework
 - **Test Coverage**: ❌ No coverage measurement implemented, estimated <5% coverage
 - **Automated Testing**: ❌ No CI/CD pipeline configured
 - **System/Acceptance Testing**: ⚠️ Manual validation notebooks exist but aren't automated
+
+...
+
+*(\* = "must")*
 ```
 
 ### 6. Recommendations for Full Compliance
@@ -188,7 +196,7 @@ Organize recommendations for achieving full compliance by priority:
 ### 🔴 "Musts"
 *These must be addressed to meet minimum PyHC standards*
 
-1. **[Action Item]**: [Specific description of what needs to be done]
+1. **[Action Item]**: [Specific description of what needs to be done (one action item for each "must" that isn't met)]
    - [Sub-task if applicable]
 
 ### 🟡 "Shoulds"
@@ -224,14 +232,13 @@ Organize recommendations for achieving full compliance by priority:
 
 **Good** (Green badge):
 - All *required* sub-standards must be met—all "musts" (✅)
-- Optional sub-standards may not be met—"shoulds"
-- Minor suggestions for improvement are acceptable but not required
+- Optional sub-standards ("shoulds") do NOT need to be met
 
 **Partially Met** (Orange badge):  
-- Most required sub-standards are met, but one or more have issues (⚠️)
+- Most *required* sub-standards are met, but one or more have issues (⚠️)
 
 **Requires Improvement** (Red badge):
-- Multiple required sub-standards are not met (❌)
+- Multiple *required* sub-standards are not met (❌)
 - OR the standard is so poorly implemented that it needs major work
 
 ## Visual Elements
