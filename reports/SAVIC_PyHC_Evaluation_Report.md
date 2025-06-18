@@ -27,27 +27,27 @@ SAVIC demonstrates weak compliance with PyHC standards despite being a valuable 
 
 The project lacks essential community infrastructure needed for collaborative development, with no contribution guidelines or code of conduct present.
 
-- **Open Development**: ✅ Code is publicly available though actual package source appears to be maintained elsewhere
+- **Open Development**\*: ✅ Code is publicly available though actual package source appears to be maintained elsewhere
 - **Duplication**: ✅ Provides unique machine learning approach to plasma stability analysis not found elsewhere in heliophysics
-- **Collaboration**: ❌ No CONTRIBUTING.md file, issue templates, or pull request guidelines found
-- **Code of Conduct**: ❌ No code of conduct file present in repository
+- **Collaboration**\*: ❌ No CONTRIBUTING.md file, issue templates, or pull request guidelines found
+- **Code of Conduct**\*: ❌ No code of conduct file present in repository
 
 ### 2. Documentation ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg)
 
 Professional Sphinx documentation exists with comprehensive tutorials, but there's a disconnect between documented package structure and repository contents.
 
-- **Docstrings**: ❌ Limited Python code present; available code lacks comprehensive docstrings
-- **Docstring Content**: ❌ Existing functions don't include proper descriptions of inputs, outputs, and examples
-- **Docstring Standards**: ❌ No evidence of standard conventions (numpydoc) being followed
-- **High-Level Documentation**: ✅ Excellent Sphinx documentation at https://savic.readthedocs.io/en/latest/ with tutorials and scientific background
-- **Documentation Accessibility**: ✅ Documentation is in version control and publicly available online
+- **Docstrings**\*: ❌ Limited Python code present; available code lacks comprehensive docstrings
+- **Docstring Content**\*: ❌ Existing functions don't include proper descriptions of inputs, outputs, and examples
+- **Docstring Standards**\*: ❌ No evidence of standard conventions (numpydoc) being followed
+- **High-Level Documentation**\*: ✅ Excellent Sphinx documentation at https://savic.readthedocs.io/en/latest/ with tutorials and scientific background
+- **Documentation Accessibility**\*: ✅ Documentation is in version control and publicly available online
 
 ### 3. Testing ![Requires improvement](https://img.shields.io/badge/Requires%20improvement-red.svg)
 
 Testing infrastructure is completely absent with no unit tests, test framework, or automated testing present.
 
-- **Unit Tests**: ❌ No test files or test directories found in repository
-- **Integration Tests**: ❌ No integration testing framework present
+- **Unit Tests**\*: ❌ No test files or test directories found in repository
+- **Integration Tests**\*: ❌ No integration testing framework present
 - **Test Coverage**: ❌ No coverage measurement tools or reports found
 - **Automated Testing**: ❌ No CI/CD configuration files (.github/, .travis.yml) present
 - **System/Acceptance Testing**: ⚠️ Tutorial notebook demonstrates functionality but isn't a proper test suite
@@ -56,12 +56,12 @@ Testing infrastructure is completely absent with no unit tests, test framework, 
 
 The repository lacks fundamental package structure and contains binary files that violate PyHC standards.
 
-- **Packaging**: ❌ No setup.py, pyproject.toml files; no Python package structure with __init__.py files
+- **Packaging**\*: ❌ No setup.py, pyproject.toml files; no Python package structure with __init__.py files
 - **Releases**: ❌ No release management visible in this repository despite version 1.1.0 claim
 - **Semantic Versioning**: ⚠️ Version 1.1.0 indicated in documentation but no versioning infrastructure present
 - **OS Support**: ⚠️ Package claims pip availability but OS compatibility unclear from this repository
-- **Version Control**: ✅ Uses git version control system
-- **Coding Style**: ⚠️ Limited code available to assess PEP 8 compliance
+- **Version Control**\*: ✅ Uses git version control system
+- **Coding Style**\*: ⚠️ Limited code available to assess PEP 8 compliance
 - **Static Analysis**: ⚠️ Limited code available to assess linting tool usage
 - **Dependencies**: ⚠️ Dependencies listed only in documentation requirements.txt, not in package metadata
 - **Binaries**: ❌ Large binary ML model files present in Output/ML/models/ directory
@@ -70,15 +70,17 @@ The repository lacks fundamental package structure and contains binary files tha
 
 The package demonstrates full Python 3 compatibility with modern library usage and no legacy Python 2 code.
 
-- **Python 3 Compatibility**: ✅ Testing notebook successfully imports savic package; uses modern libraries like pandas, numpy, scipy
+- **Python 3 Compatibility**\*: ✅ Testing notebook successfully imports savic package; uses modern libraries like pandas, numpy, scipy
 
 ### 6. License ![Requires improvement](https://img.shields.io/badge/Requires%20improvement-red.svg)
 
 No explicit license file exists in the repository, creating legal uncertainty for open source usage.
 
-- **License Exists**: ❌ No LICENSE file found in repository
+- **License Exists**\*: ❌ No LICENSE file found in repository
 - **License Type**: ❌ Cannot assess license type due to absence of license file
 - **OSI Approved**: ❌ No license information available to verify OSI approval
+
+*(\* = "must")*
 
 ## Recommendations
 

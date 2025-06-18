@@ -27,27 +27,27 @@ Kamodo demonstrates moderate compliance with PyHC standards, excelling in docume
 
 While the project demonstrates open development and unique functionality, the lack of a code of conduct and limited collaboration infrastructure prevents a "Good" rating.
 
-- **Open Development**: ✅ Code is publicly available and developed on GitHub at https://github.com/nasa/Kamodo with full transparency
+- **Open Development**\*: ✅ Code is publicly available and developed on GitHub at https://github.com/nasa/Kamodo with full transparency
 - **Duplication**: ✅ Provides unique model-agnostic heliophysics model analysis functionality not found elsewhere in the ecosystem
-- **Collaboration**: ⚠️ Basic contribution guidelines exist in `docs/ContributionGuidelines.md` but no issue/PR templates or detailed processes
-- **Code of Conduct**: ❌ No code of conduct file found in repository (.github/, root directory, or docs/)
+- **Collaboration**\*: ⚠️ Basic contribution guidelines exist in `docs/ContributionGuidelines.md` but no issue/PR templates or detailed processes
+- **Code of Conduct**\*: ❌ No code of conduct file found in repository (.github/, root directory, or docs/)
 
 ### 2. Documentation ![Good](https://img.shields.io/badge/Good-brightgreen.svg)
 
 The package demonstrates exceptional documentation quality with comprehensive tutorials and professional online presence, with only minor formatting issues preventing a perfect score.
 
-- **Docstrings**: ✅ Functions, classes, and modules have docstrings with purpose, parameters, and return descriptions
-- **Docstring Content**: ✅ Docstrings describe code purpose, inputs/outputs, though Examples sections are sometimes missing
-- **Docstring Standards**: ⚠️ Uses basic docstring format rather than structured numpydoc conventions consistently
-- **High-Level Documentation**: ✅ Outstanding guides and tutorials with 30+ Jupyter notebooks, professional MkDocs site at https://nasa.github.io/Kamodo/
-- **Documentation Accessibility**: ✅ All documentation is in version control and professionally hosted online with clear navigation
+- **Docstrings**\*: ✅ Functions, classes, and modules have docstrings with purpose, parameters, and return descriptions
+- **Docstring Content**\*: ✅ Docstrings describe code purpose, inputs/outputs, though Examples sections are sometimes missing
+- **Docstring Standards**\*: ⚠️ Uses basic docstring format rather than structured numpydoc conventions consistently
+- **High-Level Documentation**\*: ✅ Outstanding guides and tutorials with 30+ Jupyter notebooks, professional MkDocs site at https://nasa.github.io/Kamodo/
+- **Documentation Accessibility**\*: ✅ All documentation is in version control and professionally hosted online with clear navigation
 
 ### 3. Testing ![Requires improvement](https://img.shields.io/badge/Requires%20improvement-red.svg)
 
 Testing infrastructure is critically lacking with minimal unit tests, no automation, and no coverage measurement, requiring immediate attention for PyHC compliance.
 
-- **Unit Tests**: ❌ Only one model (VERB-3D) has unit tests out of 25+ model readers, representing <5% code coverage
-- **Integration Tests**: ❌ No comprehensive integration testing framework across the codebase, only VERB-3D model interactions tested
+- **Unit Tests**\*: ❌ Only one model (VERB-3D) has unit tests out of 25+ model readers, representing <5% code coverage
+- **Integration Tests**\*: ❌ No comprehensive integration testing framework across the codebase, only VERB-3D model interactions tested
 - **Test Coverage**: ❌ No coverage measurement tools implemented (.coveragerc, pytest-cov), no coverage reporting
 - **Automated Testing**: ❌ No CI/CD pipeline configured (no GitHub Actions, Travis CI, or similar)
 - **System/Acceptance Testing**: ⚠️ Extensive manual validation notebooks exist in `Validation/Notebooks/` but aren't automated
@@ -56,12 +56,12 @@ Testing infrastructure is critically lacking with minimal unit tests, no automat
 
 The package demonstrates professional organization and modern Python practices but has critical gaps in release management and code quality tooling.
 
-- **Packaging**: ⚠️ Available on PyPI as `kamodo-ccmc` but outdated (23.3.1 vs current 24.11.1), proper setup.cfg structure exists
+- **Packaging**\*: ⚠️ Available on PyPI as `kamodo-ccmc` but outdated (23.3.1 vs current 24.11.1), proper setup.cfg structure exists
 - **Releases**: ⚠️ Uses semantic versioning but inconsistent across files, no git tags for formal releases, PyPI package needs updating
 - **Semantic Versioning**: ✅ Follows semantic versioning pattern (24.11.1) though version <1.0 indicates pre-release status
 - **OS Support**: ✅ Cross-platform compatibility specified as "Operating System :: OS Independent" in setup.cfg
-- **Version Control**: ✅ Professional Git repository with active development history and clear structure
-- **Coding Style**: ⚠️ Mixed PEP 8 compliance; major violations include excessive line lengths (up to 345 characters) and inconsistent formatting, though
+- **Version Control**\*: ✅ Professional Git repository with active development history and clear structure
+- **Coding Style**\*: ⚠️ Mixed PEP 8 compliance; major violations include excessive line lengths (up to 345 characters) and inconsistent formatting, though
   indentation and naming conventions are mostly correct
 - **Static Analysis**: ❌ No automated linting tools (.flake8, .pylintrc), no pre-commit hooks, no code quality CI checks
 - **Dependencies**: ⚠️ Extensive scientific computing dependencies (20+ packages) with conservative version pinning, appropriate for domain
@@ -71,15 +71,17 @@ The package demonstrates professional organization and modern Python practices b
 
 Excellent modern Python compatibility with no legacy code and current version requirements.
 
-- **Python 3 Compatibility**: ✅ Requires Python 3.10+ (very current), no Python 2 syntax found, uses modern practices (f-strings, print functions)
+- **Python 3 Compatibility**\*: ✅ Requires Python 3.10+ (very current), no Python 2 syntax found, uses modern practices (f-strings, print functions)
 
 ### 6. License ![Good](https://img.shields.io/badge/Good-brightgreen.svg)
 
 The package uses an appropriate permissive license with clear terms and professional backing.
 
-- **License Exists**: ✅ NASA Open Source Agreement Version 1.3 file present in repository root
+- **License Exists**\*: ✅ NASA Open Source Agreement Version 1.3 file present in repository root
 - **License Type**: ✅ Permissive license allowing use, distribution, modification, and redistribution
 - **OSI Approved**: ✅ NASA Open Source Agreement is compatible with open source scientific software requirements
+
+*(\* = "must")*
 
 ## Recommendations
 
