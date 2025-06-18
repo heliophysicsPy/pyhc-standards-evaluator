@@ -1,6 +1,6 @@
 # PyHC Package Evaluation: HAPI Client
 
-**Package**: HAPI Client 
+**Package**: HAPI Client  
 **Version Evaluated**: 0.2.7b1  
 **Repository**: https://github.com/hapi-server/client-python  
 **Date**: 2025-06-18  
