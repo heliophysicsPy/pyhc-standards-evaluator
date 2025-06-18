@@ -231,7 +231,7 @@ Organize recommendations for achieving full compliance by priority:
 ## Evaluation Logic
 
 **Good** (Green badge):
-- All *required* sub-standards must be met—all "musts" (✅)
+- All *required* sub-standards for the category must be met—all "musts" (✅)
 - Optional sub-standards ("shoulds") do NOT need to be met
 
 **Partially Met** (Orange badge):  
