@@ -223,16 +223,15 @@ Organize recommendations for achieving full compliance by priority:
 ## Evaluation Logic
 
 **Good** (Green badge):
-- All sub-standards must be met (✅)
+- All *required* sub-standards must be met—all "musts" (✅)
+- Optional sub-standards may not be met—"shoulds"
 - Minor suggestions for improvement are acceptable but not required
 
 **Partially Met** (Orange badge):  
-- Most sub-standards are met, but one or more have issues (⚠️)
-- OR one sub-standard is not met (❌) but it's not critical to the standard's core purpose
+- Most required sub-standards are met, but one or more have issues (⚠️)
 
 **Requires Improvement** (Red badge):
-- Multiple sub-standards are not met (❌)
-- OR a critical sub-standard is missing that undermines the entire standard
+- Multiple required sub-standards are not met (❌)
 - OR the standard is so poorly implemented that it needs major work
 
 ## Visual Elements
