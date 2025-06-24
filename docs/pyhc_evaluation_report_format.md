@@ -233,9 +233,10 @@ Organize recommendations for achieving full compliance by priority:
 **Good** (Green badge):
 - All *required* sub-standards for the category must be met—all "musts" (✅)
 - Optional sub-standards ("shoulds") do NOT need to be met
+- Do NOT give a category anything lower than a "good" green badge if all "musts" are met
 
 **Partially Met** (Orange badge):  
-- Most *required* sub-standards are met, but one or more have issues (⚠️)
+- One or more *required* sub-standards are not met, even though most are (⚠️)
 
 **Requires Improvement** (Red badge):
 - Multiple *required* sub-standards are not met (❌)
@@ -257,4 +258,5 @@ Organize recommendations for achieving full compliance by priority:
 - Executive Summary: 3-5 sentences
 - Grade Justification (per standard): 1-2 sentences
 - Each Sub-standard Evaluation: 1-2 sentences
+- Recommendations: Omit "Musts"/"Shoulds" section headers when empty
 - Conclusion: 3-5 sentences
