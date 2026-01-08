@@ -53,7 +53,7 @@ Place this table immediately after the metadata. Use badge images for visual cla
 | Documentation | ![Badge](URL) | Brief status description |
 | Testing | ![Badge](URL) | Brief status description |
 | Software Maturity | ![Badge](URL) | Brief status description |
-| Python 3 | ![Badge](URL) | Brief status description |
+| PHEP 3 (Python & Upstream Package Support) | ![Badge](URL) | Brief status description |
 | License | ![Badge](URL) | Brief status description |
 ```
 
@@ -136,11 +136,13 @@ No \* = "shoulds"
 - **Dependencies**: ✅/⚠️/❌ [Are dependencies minimal and justified?]
 - **Binaries**: ✅/⚠️/❌ [Are binaries avoided in the repository?]
 
-### 5. Python 3 ![Grade](Badge URL)
+### 5. PHEP 3 (Python & Upstream Package Support) ![Grade](Badge URL)
 
-[1-2 sentences explaining the grade]
+[1-2 sentences explaining the grade. See [PHEP 3](phep-0003.md) for full policy details.]
 
-- **Python 3 Compatibility**\*: ✅/⚠️/❌ [Is the package compatible with Python 3? Has Python 2 support been dropped (optional but recommended)?]
+- **Python Version Support**: ✅/⚠️/❌ [Does the package support Python versions released within the last 36 months (per PHEP 3)?]
+- **Upstream Package Support**: ✅/⚠️/❌ [Does the package support upstream core Scientific Python packages (numpy, scipy, matplotlib, pandas, etc.) released within the last 24 months (per PHEP 3)?]
+- **New Version Adoption**: ✅/⚠️/❌ [Does the package support new dependency versions within 6 months of their release (per PHEP 3)?]
 
 ### 6. License ![Grade](Badge URL)
 
