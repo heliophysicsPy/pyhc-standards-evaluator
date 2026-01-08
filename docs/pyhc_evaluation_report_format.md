@@ -53,7 +53,7 @@ Place this table immediately after the metadata. Use badge images for visual cla
 | Documentation | ![Badge](URL) | Brief status description |
 | Testing | ![Badge](URL) | Brief status description |
 | Software Maturity | ![Badge](URL) | Brief status description |
-| PHEP 3 (Python & Upstream Package Support) | ![Badge](URL) | Brief status description |
+| PHEP 3 | ![Badge](URL) | Brief status description |
 | License | ![Badge](URL) | Brief status description |
 ```
 
