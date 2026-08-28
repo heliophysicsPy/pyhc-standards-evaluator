@@ -1,84 +1,86 @@
 # PyHC Package Evaluation: madrigalWeb
 
 **Package**: madrigalWeb  
-**Version Evaluated**: 3.3.3  
+**Version Evaluated**: 3.3.8  
 **Repository**: https://github.com/MITHaystack/madrigalWeb  
-**Date**: 2025-06-26  
-**Evaluator**: Claude Sonnet 4  
+**Date**: 2026-08-19  
+**Evaluator**: Claude Opus 5  
 
 ## Standards Compliance Summary
 
 | Standard | Grade | Status |
 |----------|-------|--------|
-| Community | ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg) | Open development with GitHub but lacks community guidelines |
-| Documentation | ![Requires improvement](https://img.shields.io/badge/Requires%20improvement-red.svg) | Basic README only, no comprehensive documentation |
-| Testing | ![Requires improvement](https://img.shields.io/badge/Requires%20improvement-red.svg) | Minimal tests without automation or coverage |
-| Software Maturity | ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg) | Good packaging but missing key infrastructure |
-| Python 3 | ![Good](https://img.shields.io/badge/Good-brightgreen.svg) | Full Python 3 compatibility |
-| License | ![Good](https://img.shields.io/badge/Good-brightgreen.svg) | MIT license properly implemented |
+| Community | ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg) | Open development and a code of conduct are in place; contribution guidance is a brief README paragraph |
+| Documentation | ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg) | 100% numpydoc docstring coverage and a published docs site, but no developer documentation |
+| Testing | ![Good](https://img.shields.io/badge/Good-brightgreen.svg) | Unit and integration tests now cover both the core class and all three CLI scripts, run in CI |
+| Software Maturity | ![Good](https://img.shields.io/badge/Good-brightgreen.svg) | Installable, semver-versioned, on both PyPI and conda-forge, OS-independent, ruff-linted in CI |
+| PHEP 3 | ![Good](https://img.shields.io/badge/Good-brightgreen.svg) | Supports all Python versions from the last 36 months with no upper cap; zero upstream dependencies |
+| License | ![Good](https://img.shields.io/badge/Good-brightgreen.svg) | Permissive, OSI-approved MIT license in a properly named `LICENSE` file |
 
 ## Executive Summary
 
-madrigalWeb demonstrates moderate compliance with PyHC standards, excelling in Python 3 compatibility and licensing but requiring significant improvement in documentation and testing infrastructure. The package provides a valuable API for accessing Madrigal database services for heliophysics research. To achieve full PyHC compliance, the primary focus should be on implementing comprehensive documentation, automated testing workflows, and community engagement infrastructure.
+**madrigalWeb** demonstrates strong compliance with PyHC standards, having improved markedly since its previous evaluation at version 3.3.7. The package excels in software maturity and testing — it is a dependency-free, MIT-licensed, pure-Python API distributed on both PyPI and conda-forge, with 100% numpydoc docstring coverage, a published Read the Docs site, and 49 test methods now covering both the `MadrigalData` class and all three command-line scripts, all exercised by GitHub Actions. The remaining gaps are documentary rather than technical: there are no developer docs (how to set up a dev environment, run tests, or build the documentation), and contribution guidance is a three-sentence README paragraph rather than a `CONTRIBUTING` file explaining when a contribution is not accepted. As the official remote-access API for the Madrigal database — a cornerstone data source for the upper-atmosphere and geospace community — the package provides unique and widely used functionality. To achieve full PyHC compliance, the primary focus should be adding a `CONTRIBUTING.md` and a developer-documentation page to the existing mkdocs site.
 
 ## Detailed Assessment
 
 ### 1. Community ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg)
 
-The project demonstrates open development practices and unique functionality but lacks essential community infrastructure including code of conduct and comprehensive contribution guidelines.
+Development is open, non-duplicative, and now governed by a published code of conduct; the sole shortfall is that contribution guidance is minimal and does not address when contributions are declined.
 
-- **Open Development**\*: ✅ Code is publicly available on GitHub at https://github.com/MITHaystack/madrigalWeb with clear repository structure
-- **Duplication**: ✅ Provides unique Python API for Madrigal database access, no duplication found in the heliophysics ecosystem
-- **Collaboration**\*: ⚠️ Basic README exists with contact information but no CONTRIBUTING.md, issue templates, or pull request guidelines
-- **Code of Conduct**\*: ❌ No code of conduct file found in repository
+- **Open Development**\*: ✅ Code is publicly developed on GitHub at https://github.com/MITHaystack/madrigalWeb with a full commit history and CI runs visible on every push.
+- **Duplication**: ✅ Provides the unique, official Python remote-access API for the Madrigal database; no ecosystem duplication.
+- **Collaboration**\*: ⚠️ The README's "Contributing" section invites issues, emails, and pull requests, but there is no `CONTRIBUTING.md`, no issue or PR templates, and no statement of when a contribution would not be accepted (explicitly required by standard 13).
+- **Code of Conduct**\*: ✅ `CODE_OF_CONDUCT.md` is present at the repository root, adapted from the HAPI-Server project, and is Contributor Covenant-compatible; it names the Madrigal admin (haystack-madrigal-admin@mit.edu) as a contact.
 
-### 2. Documentation ![Requires improvement](https://img.shields.io/badge/Requires%20improvement-red.svg)
+### 2. Documentation ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg)
 
-Documentation is critically insufficient with only basic README content and no comprehensive guides, API documentation, or examples beyond simple usage patterns.
+Docstrings are complete, standards-conformant, and example-rich, and the docs are published online — but the required developer-documentation component of high-level documentation is absent.
 
-- **Docstrings**\*: ⚠️ Some functions and classes have docstrings but coverage is incomplete across all modules
-- **Docstring Content**\*: ⚠️ Existing docstrings describe purpose and provide examples but input/output documentation is inconsistent
-- **Docstring Standards**\*: ❌ Does not follow standard conventions like numpydoc; uses custom format with "Inputs::", "Affects:", "Exceptions:"
-- **High-Level Documentation**\*: ❌ No guides, tutorials, or developer documentation beyond basic README
-- **Documentation Accessibility**\*: ❌ No online documentation site; only README available in repository
+- **Docstrings**\*: ✅ 100% coverage verified by AST inspection — all 44 modules/classes/functions in `madrigalWeb.py`, all 11 in `globalDownload.py`, all 12 in `globalIsprint.py`, and every module docstring are present.
+- **Docstring Content**\*: ✅ Docstrings describe purpose, document every parameter and return value in typed `Parameters`/`Returns` sections, and 20 of 26 public objects carry runnable `Examples` blocks; the six without are the plain data-holder classes (`MadrigalInstrument`, `MadrigalExperiment`, `MadrigalExperimentFile`, `MadrigalParameter`) and two trivial helpers.
+- **Docstring Standards**\*: ✅ Docstrings follow numpydoc convention, and this is machine-enforced — `pyproject.toml` selects ruff's `D` rules with `convention = "numpy"`, and `ruff check` passes cleanly on the current tree.
+- **High-Level Documentation**\*: ⚠️ The mkdocs site provides a landing page, an API reference, and usage guides for each CLI script (`gd.md`, `gi.md`, `gc.md`), but there are **no developer docs** — nothing documents how to set up a development environment, run the test suite, or build the docs, which standard 8 requires alongside guides and tutorials.
+- **Documentation Accessibility**\*: ✅ Documentation is in version control (`docs/`, `mkdocs.yml`, `.readthedocs.yaml`) and published in readable form at https://madrigalweb.readthedocs.io/en/latest/, which renders correctly.
 
-### 3. Testing ![Requires improvement](https://img.shields.io/badge/Requires%20improvement-red.svg)
+### 3. Testing ![Good](https://img.shields.io/badge/Good-brightgreen.svg)
 
-Testing infrastructure is critically lacking with minimal unit tests, no automation, and no coverage measurement, requiring immediate attention for PyHC compliance.
+Both required testing sub-standards are met: unit tests now cover the core class *and* all three CLI scripts, integration tests exercise real multi-step server interactions, and the suite runs automatically in GitHub Actions.
 
-- **Unit Tests**\*: ❌ Only basic unittest framework present in tests/ directory with limited coverage of the codebase
-- **Integration Tests**\*: ❌ No comprehensive integration testing framework found
-- **Test Coverage**: ❌ No coverage measurement implemented or reported
-- **Automated Testing**: ❌ No CI/CD testing pipeline configured despite having GitHub Actions for publishing
-- **System/Acceptance Testing**: ⚠️ Manual validation appears to exist through example scripts but not automated
+- **Unit Tests**\*: ✅ 49 test methods across two files — `tests/testMadrigalWeb.py` (21 methods on `MadrigalData` and the result classes) and the new `tests/testGlobalScriptsCLI.py` (28 methods on `globalDownload.py`, `globalIsprint.py`, and `globalCitation.py`), closing the CLI coverage gap flagged in the previous evaluation.
+- **Integration Tests**\*: ✅ Tests run against the live `cedar.openmadrigal.org` server and exercise multi-step flows (`getExperiments` → `getExperimentFiles` → `downloadFile`/`isprint`), plus end-to-end subprocess invocations of the CLI scripts.
+- **Test Coverage**: ⚠️ No coverage tool is configured (`coverage`/`pytest-cov` appear nowhere in the repo) and no coverage figure is reported, so coverage remains unquantified.
+- **Automated Testing**: ⚠️ `.github/workflows/unit-test.yml` runs both suites on every push, but two issues weaken the gate: the test files invoke `unittest.TextTestRunner().run(suite)` at module level without propagating the result to an exit code, so a failing test still exits 0 and the job reports green; and the workflow triggers only `on: push`, not `on: pull_request`.
+- **System/Acceptance Testing**: ✅ The CLI subprocess tests are genuine acceptance tests — they invoke the installed console scripts as a user would and assert on downloaded artifacts, output formats, and directory hierarchies, with a deliberate offline/online split for argument-validation versus network paths.
 
-### 4. Software Maturity ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg)
+### 4. Software Maturity ![Good](https://img.shields.io/badge/Good-brightgreen.svg)
 
-The package demonstrates good foundational practices with modern packaging and version control but lacks several key infrastructure components for full maturity.
+Every software-maturity sub-standard is now met, including the conda distribution that was missing at the previous evaluation.
 
-- **Packaging**\*: ✅ Code is properly organized as installable Python package with both setup.py and pyproject.toml
-- **Releases**: ✅ Stable releases available on PyPI (version 3.3.3 > 1.0), automated publishing via GitHub Actions
-- **Semantic Versioning**: ✅ Follows semantic versioning pattern (3.3.3)
-- **OS Support**: ✅ Pure Python implementation should work on Windows, macOS, Linux
-- **Version Control**\*: ✅ Uses Git with GitHub repository and proper branching
-- **Coding Style**\*: ❌ No PEP 8 enforcement tools or configuration found
-- **Static Analysis**: ❌ No linting tools (flake8, pylint) or configuration present
-- **Dependencies**: ✅ Minimal dependencies (only packaging), well-justified for API client
-- **Binaries**: ✅ No binary files in repository, pure Python implementation
+- **Packaging**\*: ✅ Modern `pyproject.toml` (setuptools ≥61 backend) with a `setup.py` shim declaring the four console scripts; installable via `pip install madrigalweb`.
+- **Releases**: ✅ Stable releases are on **both** PyPI (3.3.8, released 2026-07-24) and **conda-forge** (`conda install conda-forge::madrigalweb`, 3.3.8, noarch) — resolving the conda gap noted previously. Version 3.3.8 is ≥1.0, appropriate for a stable API, with a steady release cadence (eight releases since 2024).
+- **Semantic Versioning**: ✅ Version `3.3.8` follows a MAJOR.MINOR.PATCH scheme.
+- **OS Support**: ✅ Pure Python with no OS-specific code (no `sys.platform`, `os.name`, or `win32` branches) and classified `Operating System :: OS Independent`; the `globalDownload.py` docstring explicitly notes it runs on unix or Windows.
+- **Version Control**\*: ✅ Uses git, hosted on GitHub with a complete history.
+- **Coding Style**\*: ✅ `ruff check` passes with no findings on the current tree; formatting is space-indented per `[tool.ruff.format]`. The camelCase method names deviate from PEP 8 naming but are a longstanding public-API convention that cannot change without breaking users.
+- **Static Analysis**: ✅ ruff is configured in `pyproject.toml` (`E4`, `E7`, `E9`, `F`, `D`; line length 100) **and enforced in CI** via `.github/workflows/do-lint.yml` on every push.
+- **Dependencies**: ✅ Exemplary — `dependencies = []`; the package uses only the Python standard library.
+- **Binaries**: ✅ No binary files (HDF5, notebooks, compiled artifacts, images) are committed to the repository.
 
-### 5. Python 3 ![Good](https://img.shields.io/badge/Good-brightgreen.svg)
+### 5. PHEP 3 (Python & Upstream Package Support) ![Good](https://img.shields.io/badge/Good-brightgreen.svg)
 
-The package demonstrates full Python 3 compatibility with appropriate version requirements and has abandoned Python 2 support.
+The package declares broad Python support with no upper cap and has zero upstream scientific dependencies, so there is nothing to fall behind on. See [PHEP 3](https://doi.org/10.5281/zenodo.17794207) for full policy details.
 
-- **Python 3 Compatibility**\*: ✅ Package requires Python >=3.3 and is fully compatible with Python 3, legacy Python 2 compatibility code present but not actively supported
+- **Python Version Support**: ✅ `requires-python = ">=3.7"` with no upper bound covers every minor Python release from the last 36 months (3.12, 3.13, 3.14); note that only 3.12 is actually exercised in CI, and no per-version `Programming Language :: Python :: 3.x` classifiers are declared.
+- **Upstream Package Support**: ✅ The package has no upstream dependencies (`dependencies = []`), so upstream-version currency is not applicable.
+- **New Version Adoption**: ✅ With no version cap, no dependencies, and pure-stdlib code, new Python releases are supported immediately upon release.
 
 ### 6. License ![Good](https://img.shields.io/badge/Good-brightgreen.svg)
 
-The project has proper MIT licensing with appropriate copyright notices and OSI approval, fully meeting PyHC requirements.
+The project ships a permissive, OSI-approved MIT license in a conventionally named file, fully satisfying the License standard.
 
-- **License Exists**\*: ✅ MIT license file present with proper copyright notice (license.txt)
-- **License Type**: ✅ MIT is a permissive license preferred for open source scientific software
-- **OSI Approved**: ✅ MIT license is OSI-approved and well-suited for scientific software
+- **License Exists**\*: ✅ `LICENSE` is present at the repository root (Copyright 2024 Massachusetts Institute of Technology), correctly named for automatic detection by GitHub and PyPI — an improvement over the previous `license.txt`.
+- **License Type**: ✅ MIT — a permissive license appropriate for open-source scientific software; also declared in `CITATION.cff`.
+- **OSI Approved**: ✅ MIT is OSI-approved and declared via the `License :: OSI Approved :: MIT License` classifier.
 
 *(\* = "must")*
 
@@ -87,34 +89,28 @@ The project has proper MIT licensing with appropriate copyright notices and OSI 
 ### 🔴 "Musts"
 *These must be addressed to meet minimum PyHC standards*
 
-1. **Add Code of Conduct**: Create a CODE_OF_CONDUCT.md file compatible with Contributor Covenant
-2. **Implement Comprehensive Documentation**: Create proper API documentation using standard docstring conventions (numpydoc) and online documentation site
-3. **Establish Contribution Guidelines**: Add CONTRIBUTING.md with clear guidelines for community contributions
-4. **Fix Docstring Standards**: Convert custom docstring format to standard conventions like numpydoc
-5. **Create High-Level Documentation**: Develop user guides, tutorials, and developer documentation
-6. **Implement Unit Testing**: Expand test coverage to include all individual components and functions
-7. **Add Integration Testing**: Create tests that verify component interactions
-8. **Implement PEP 8 Compliance**: Add linting tools and ensure code follows Python style guidelines
+1. **Add contribution guidelines**: Create a `CONTRIBUTING.md` that expands the README's three-sentence "Contributing" paragraph into concrete guidance — how to report an issue, how to open a pull request, what review looks like, and, as standard 13 explicitly requires, **when a contribution will not be accepted** (e.g. changes that break the camelCase public API, or features better suited to the Madrigal server itself).
+   - Optionally add `.github/ISSUE_TEMPLATE/` and a PR template to lower the barrier for new contributors.
+2. **Add developer documentation**: Add a developer page to the existing mkdocs site (e.g. `docs/dev.md`, registered in `mkdocs.yml`'s `nav`) covering how to install from source for development, how to run the two test suites (including the offline-versus-online split and the `MADRIGAL_ONLINE` convention), how to run `ruff check`/`ruff format`, and how to build the docs locally.
 
 ### 🟡 "Shoulds"
 *Important for package quality but not blocking compliance*
 
-1. **Add Automated Testing Pipeline**: Configure GitHub Actions to run tests on all commits and pull requests
-2. **Implement Test Coverage Measurement**: Add coverage reporting and set minimum coverage targets
-3. **Add Static Analysis Tools**: Configure flake8, pylint, or similar tools for code quality
-4. **Create Issue and PR Templates**: Add GitHub templates to encourage structured community engagement
-5. **Add CHANGELOG**: Document version history and changes between releases
-6. **Implement Semantic Versioning Documentation**: Clearly document versioning strategy and release process
+1. **Make CI actually fail on test failure**: The test files call `unittest.TextTestRunner().run(suite)` at module level and discard the result, so the workflow exits 0 even when tests fail. Either guard the runner with `if __name__ == '__main__':` and `sys.exit(not runner.run(suite).wasSuccessful())`, or invoke the suites via `python -m unittest` in `unit-test.yml` so the runner sets the exit code.
+2. **Run tests on pull requests**: `unit-test.yml` and `do-lint.yml` trigger only `on: push`; add `pull_request` so contributions are checked before merge, as PyHC standard 9 recommends.
+3. **Measure test coverage**: Integrate `coverage`/`pytest-cov` into `unit-test.yml` and publish a figure (e.g. a Codecov badge in the README) — the only Testing sub-standard still unaddressed.
+4. **Honor the documented `MADRIGAL_ONLINE` switch**: `testGlobalScriptsCLI.py` hardcodes `ONLINE = 1` despite its module docstring stating that network tests are skipped unless `MADRIGAL_ONLINE=1` is set. Reading the environment variable (`ONLINE = os.environ.get('MADRIGAL_ONLINE') == '1'`) would match the documentation and make the default run fast, deterministic, and independent of live-server availability.
+5. **Test across supported Python versions**: Add a matrix to `unit-test.yml` covering at least 3.12, 3.13, and 3.14 to verify the uncapped `>=3.7` declaration in practice, and add matching `Programming Language :: Python :: 3.x` classifiers.
 
 ### 🟢 Suggested Improvements
 *Enhancements that would strengthen the package*
 
-1. **Add Development Dependencies**: Specify testing and development requirements in pyproject.toml
-2. **Create Examples Directory**: Provide structured examples and tutorials beyond simple usage
-3. **Add System/Acceptance Testing**: Implement automated end-to-end testing of the API functionality
-4. **Consider Python Version Support**: Evaluate if Python >=3.3 support is necessary or if minimum version can be raised
-5. **Add Security Scanning**: Implement dependency vulnerability scanning in CI/CD pipeline
+1. **Use `ruff format --check` in CI**: `do-lint.yml` runs bare `ruff format`, which reformats files in the runner and exits 0; `ruff format --check` (or `--diff`) would actually fail the job on unformatted code.
+2. **Adopt the PHEP 3 Compliance Checker**: Add PyHC's [PHEP 3 Compliance Checker GitHub Action](https://github.com/heliophysicsPy/pyhc-actions) to make PHEP 3 conformance continuously verifiable rather than inferred from metadata.
+3. **Replace bare `except:` clauses**: There are 58 bare `except:` statements (28 in `madrigalWeb.py`, 14 each in `globalDownload.py` and `globalIsprint.py`), currently silenced via `ignore = ["E722"]`. Narrowing these to specific exception types would prevent masking `KeyboardInterrupt` and genuine bugs.
+4. **Reconcile CLI date-format inconsistencies**: The tests document that `globalDownload.py`/`globalIsprint.py` accept `MM/DD/YYYY` while their `--help` text advertises `YYYY-MM-DD`, and that `globalCitation.py` requires `YYYY-MM-DD` — plus `--format=hdf5` versus `--format=Hdf5` case differences between scripts. Aligning these (or at minimum fixing the help text) would remove a real user-facing trap.
+5. **Add examples to the result classes**: Short `Examples` blocks on `MadrigalInstrument`, `MadrigalExperiment`, `MadrigalExperimentFile`, and `MadrigalParameter` showing typical attribute access would round out the already-strong docstring coverage.
 
 ## Conclusion
 
-madrigalWeb provides valuable functionality for the heliophysics community through its Python API for Madrigal database access, but requires substantial improvements to meet PyHC standards. The package has solid foundational elements including proper licensing, Python 3 compatibility, and basic packaging, but critically lacks the documentation, testing infrastructure, and community engagement features expected of PyHC-compliant packages. With focused effort on the "must" requirements, particularly documentation and testing, this package could achieve full PyHC compliance and serve as a robust tool for the heliophysics Python ecosystem.
+madrigalWeb is a mature, focused, dependency-free package providing essential remote access to the Madrigal database, and this evaluation records substantial progress since version 3.3.7: it now earns "Good" on four of the six standards, up from three. The additions of a code of conduct, a full numpydoc docstring migration with ruff-enforced `D` rules, a published Read the Docs site, a 28-method CLI test suite, unit-test and lint GitHub Actions workflows, a conda-forge distribution, and a properly named `LICENSE` file collectively resolved most of the previously identified gaps. The two remaining shortfalls are small and documentary: contribution guidelines that state when contributions are declined, and a developer-documentation page on the site that already exists. Adding those two files would bring madrigalWeb to full compliance across all six PyHC standards, and the highest-value follow-up beyond that is making the new CI gate propagate test failures into its exit code so the green checkmark means what it appears to mean.
