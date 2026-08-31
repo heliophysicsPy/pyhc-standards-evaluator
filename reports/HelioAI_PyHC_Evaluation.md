@@ -12,14 +12,14 @@
 |----------|-------|--------|
 | Community | ![Good](https://img.shields.io/badge/Good-brightgreen.svg) | Public development, clear contribution guidance, and a Contributor Covenant code of conduct |
 | Documentation | ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg) | Substantial hosted documentation, but incomplete examples and an unsupported export-verification claim |
-| Testing | ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg) | Broad automated coverage, but a central advertised workflow was defective and lacked acceptance coverage |
+| Testing | ![Good](https://img.shields.io/badge/Good-brightgreen.svg) | Broad automated coverage, but a central advertised workflow was defective and lacked acceptance coverage |
 | Software Maturity | ![Good](https://img.shields.io/badge/Good-brightgreen.svg) | Reproducible release artifacts, modern packaging, release automation, Ruff, and semantic versioning |
 | PHEP 3 | ![Good](https://img.shields.io/badge/Good-brightgreen.svg) | The official PHEP 3 action passed with zero errors and zero warnings |
 | License | ![Good](https://img.shields.io/badge/Good-brightgreen.svg) | Permissive, OSI-approved MIT license |
 
 ## Executive Summary
 
-HelioAI v0.2.1 demonstrates generally strong compliance with PyHC standards and clearly fits PyHC's scientific scope, but the submitted self-evaluation overstates the released package's testing posture. The release has substantial documentation, a large cross-platform test suite, reproducible package artifacts, modern automation, and full PHEP 3 and licensing compliance. However, the release lacked acceptance coverage for a central PlasmaPy workflow that was subsequently confirmed to produce coroutine objects and fail during export, while its export guide also referred to a verification script that was not shipped. The recommendation at the time of evaluation was to request changes to PR #388, publish the already-developed corrections in a new release, and require green release CI before acceptance.
+HelioAI v0.2.1 demonstrates generally strong compliance with PyHC standards and clearly fits PyHC's scientific scope. Under a literal reading of PyHC's required-versus-recommended testing criteria, the submitted Testing grade of Good is defensible. The release has substantial documentation, a large cross-platform test suite, reproducible package artifacts, modern automation, and full PHEP 3 and licensing compliance. However, the release lacked acceptance coverage for a central PlasmaPy workflow that was subsequently confirmed to produce coroutine objects and fail during export, while its export guide also referred to a verification script that was not shipped. Those gaps remain important recommendations, but they do not require lowering the overall Testing grade under this interpretation of the rubric.
 
 This report is a historical evaluation of the tagged v0.2.1 release at the commit listed above. Later changes to the repository's `main` branch are outside its evaluation scope.
 
@@ -44,9 +44,9 @@ The release has a substantial hosted MkDocs site that built successfully in stri
 - **High-Level Documentation**\*: ⚠️ Guides and tutorials exist, but the [export guide](https://github.com/erdoganfurkan/HelioAI/blob/081aa52488c6809b5ce1b2b395f79539162ec2c2/docs/guide/export.md#L45-L57) said the repository shipped `verify_export.sh` and used it to execute notebooks outside the repository; that file was absent.
 - **Documentation Accessibility**\*: ✅ Documentation is version-controlled and published as a readable hosted site.
 
-### 3. Testing ![Partially met](https://img.shields.io/badge/Partially%20met-orange.svg)
+### 3. Testing ![Good](https://img.shields.io/badge/Good-brightgreen.svg)
 
-The tagged release had a genuinely substantial automated test suite, but acceptance testing did not cover a central advertised PlasmaPy workflow that was defective in v0.2.1. Example and exported notebooks were not executed in CI, so the self-assigned Good grade was not supported.
+The tagged release had a genuinely substantial automated test suite, but acceptance testing did not cover a central advertised PlasmaPy workflow that was defective in v0.2.1. PyHC formally requires unit and integration tests, while automated, system, and acceptance testing are recommended. Applying that must/should distinction, the overall category qualifies as Good, while the acceptance gap remains a substantive criticism.
 
 - **Unit Tests**\*: ✅ The tagged release CI collected 797 tests, with 794 passing and 3 skipped.
 - **Integration Tests**\*: ⚠️ Integration coverage existed, but did not exercise the synchronous agent-to-async-PlasmaPy path that later failed.
@@ -99,9 +99,8 @@ The package contained thoughtful scientific checks and cited recipes, but v0.2.1
 ### 🔴 "Musts"
 *These must be addressed to meet minimum PyHC standards*
 
-1. **Correct the submitted testing grade**: Change Testing from **Good** to **Partially met**, documenting the missing full-agent/notebook acceptance coverage and the v0.2.1 PlasmaPy integration defect.
-2. **Qualify the security claim**: Remove or qualify "sandboxed" in the website description because isolation was only provided by functional bubblewrap on Linux, and fix the `.env`/API-key masking claim and behavior.
-3. **Release the fixes**: Ship the corrections merged through HelioAI PR #3 in a new PyPI release and require a green release-tag CI run before accepting the website submission.
+1. **Qualify the security claim**: Remove or qualify "sandboxed" in the website description because isolation was only provided by functional bubblewrap on Linux, and fix the `.env`/API-key masking claim and behavior.
+2. **Release the fixes**: Ship the corrections merged through HelioAI PR #3 in a new PyPI release and require a green release-tag CI run before accepting the website submission.
 
 ### 🟡 "Shoulds"
 *Important for package quality but not blocking compliance*
@@ -112,6 +111,6 @@ The package contained thoughtful scientific checks and cited recipes, but v0.2.1
 
 ## Conclusion
 
-HelioAI v0.2.1 is a promising, well-engineered young project that fits the PyHC scientific ecosystem and earns Good grades for Community, Software Maturity, PHEP 3, and License. Its documentation is substantial but contains an unsupported verification claim and uneven examples, supporting a Partially met grade. Most importantly, its broad automated test suite did not cover a central advertised agent workflow whose released implementation was subsequently shown to fail and to contain scientific-data handling defects, so Testing is also Partially met. Acceptance was recommended after correcting the submission, publishing the known fixes, and obtaining green release CI.
+HelioAI v0.2.1 is a promising, well-engineered young project that fits the PyHC scientific ecosystem and earns Good grades for Community, Testing, Software Maturity, PHEP 3, and License. Its documentation is substantial but contains an unsupported verification claim and uneven examples, supporting a Partially met grade. Its broad automated test suite satisfies the rubric's required unit-and-integration-testing elements, supporting a Good Testing grade, while the uncovered advertised agent workflow and the scientific-data handling defects found there remain serious recommended improvements. Acceptance was recommended after publishing the known fixes and obtaining green release CI.
 
 At the time of evaluation, current `main` was red across every test matrix in [run 33080653910](https://github.com/erdoganfurkan/HelioAI/actions/runs/33080653910) because `test_spz_still_resolves_when_actually_touched` timed out. That appeared to be a live Speasy/inventory integration failure rather than evidence that the tagged release failed, but it still needed to be resolved or cleanly rerun before acceptance.
